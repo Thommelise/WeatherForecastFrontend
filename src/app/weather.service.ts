@@ -6,30 +6,31 @@ import { Observable } from 'rxjs';
 
 export interface CurrentWeather {
   temperature: number;
-  windspeed: number;
+  interval: number;
   winddirection: number;
   weathercode: number;
   time: string;
+  isday:boolean;
 }
 
 export interface Hourly {
   time: string[];
-  temperature_2m: number[];
-  relative_humidity_2m: number[];
-  rain: number[];
-  wind_speed_10m: number[];
-  wind_direction_10m: number[];
+  temperature_2m: number[]; 
+}
+
+export interface HourlyUnits{
+  temperature_2m: string;
 }
 
 export interface WeatherResponse {
   latitude: number;
-  longitude: number;
-  elevation: number;
+  longitude: number;  
   generationtime_ms: number;
   utc_offset_seconds: number;
   timezone: string;
   timezone_abbreviation: string;
-  hourly_units: any;
+  elevation: number;
+  hourly_units: HourlyUnits;
   hourly: Hourly;
   current_weather: CurrentWeather;
 }
@@ -42,10 +43,10 @@ export class WeatherService {
 
   constructor(private http: HttpClient) { }
 
-  getWeatherData(lat: number = 56.1518, lon: number = 10.2064): Observable<WeatherResponse> {
+  getWeatherData(latitude: number = 56.1518, longitude: number = 10.2064): Observable<WeatherResponse> {
     let params = new HttpParams()
-      .set('lat', lat.toString())
-      .set('lon', lon.toString());
+      .set('latitude', latitude.toString())
+      .set('longtitude', longitude.toString());
 
     return this.http.get<WeatherResponse>(this.apiUrl, { params });
   }

@@ -39,18 +39,14 @@ export class ForecastComponent implements OnInit {
       if (!forecastMap[date]) {
         forecastMap[date] = {
           date: date,
-          temperature: [],
-          humidity: [],
-          rain: [],
-          windSpeed: [],
-          windDirection: []
+          temperature: []
+    
         };
       }
-    //  forecastMap[date].temperature.push(this.hourly.temperature_2m[index]);
-    // forecastMap[date].humidity.push(this.hourly.relative_humidity_2m[index]);
-    //  forecastMap[date].rain.push(this.hourly.rain[index]);
-    //  forecastMap[date].windSpeed.push(this.hourly.wind_speed_10m[index]);
-    //  forecastMap[date].windDirection.push(this.hourly.wind_direction_10m[index]);
+     // Add null checks for each of the data arrays
+     if (this.hourly){
+      forecastMap[date].temperature.push(this.hourly.temperature_2m ? this.hourly.temperature_2m[index] : 'N/A');      
+
     });
 
     // Extract the next 7 days
