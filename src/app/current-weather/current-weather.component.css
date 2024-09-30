@@ -1,0 +1,19 @@
+/* src/app/current-weather/current-weather.component.css */
+
+.current-weather-container {
+    background-color: #f0f8ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .current-weather-container h2 {
+    margin-bottom: 10px;
+  }
+  
+  .current-weather-container p {
+    margin: 5px 0;
+    font-size: 1.1em;
+  }
+  
