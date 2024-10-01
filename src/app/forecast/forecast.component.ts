@@ -1,5 +1,3 @@
-// src/app/forecast/forecast.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { WeatherService, Hourly, WeatherResponse } from '../weather.service';
 
