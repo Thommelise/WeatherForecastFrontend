@@ -1,4 +1,4 @@
-### README (Dansk)
+### README
 
 ## Weather Dashboard Applikation
 
