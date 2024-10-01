@@ -1,6 +1,8 @@
 
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ForecastComponent } from './forecast/forecast.component';
+import { CurrentWeather } from './weather.service';
 
 @Component({
   selector: 'app-root',

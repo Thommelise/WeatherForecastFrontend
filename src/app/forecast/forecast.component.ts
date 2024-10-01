@@ -47,7 +47,7 @@ export class ForecastComponent implements OnInit {
      if (this.hourly){
       forecastMap[date].temperature.push(this.hourly.temperature_2m ? this.hourly.temperature_2m[index] : 'N/A');      
 
-    });
+    }});
 
     // Extract the next 7 days
     return Object.values(forecastMap).slice(0, 7);
