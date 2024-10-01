@@ -56,19 +56,6 @@ Hvis du støder på CORS-problemer, når frontend forsøger at anmode om data fr
 
 ### Projektstruktur
 
-#### Backend (Java):
-```
-src/
-├── main/
-│   ├── java/com/example/weatherApp
-│   │   ├── controller/  # REST API controller for vejropdateringer
-│   │   ├── service/     # Service der kommunikerer med Open-Meteo API
-│   │   └── model/       # Modeller for vejrrespons
-│   └── resources/
-│       └── application.properties  # Konfiguration for Spring Boot
-└── test/  # Enhedstest
-```
-
 #### Frontend (Angular):
 ```
 src/
@@ -83,7 +70,6 @@ src/
 
 ### Hvordan det fungerer
 
-- **Backend** henter data fra Open-Meteo API'et baseret på den angivne lokation (Aarhus).
 - **Frontend** sender HTTP-anmodninger til backend for at hente vejrinformationen og vise det på et brugervenligt dashboard.
 
 ---
@@ -97,4 +83,4 @@ src/
 ---
 
 ### Konklusion
-Dette vejr-dashboard er en komplet løsning til at spore realtids vejroplysninger og vejrudsigt for Better Developers' kontor i Aarhus. Følg ovenstående trin for at køre både backend og frontend, og nyd live vejropdateringer.
+Dette vejr-dashboard er en komplet løsning til at spore realtids vejroplysninger og vejrudsigt for Better Developers' kontor i Aarhus. 
