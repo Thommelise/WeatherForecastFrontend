@@ -1,27 +1,100 @@
-# WeatherDashboard
+### README (Dansk)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.6.
+## Weather Dashboard Applikation
 
-## Development server
+Denne Weather Dashboard er en full-stack webapplikation, der viser realtids vejroplysninger og en 7-dages vejrudsigt for Aarhus, Danmark. Applikationen er bygget med Java til backend og Angular til frontend, og anvender Open-Meteo API til at hente vejrinformation.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Brugte teknologier
+- **Backend:** Java (Spring Boot)
+- **Frontend:** Angular
+- **API:** [Open-Meteo Weather API](https://open-meteo.com/)
+- **HTTP Klienter:** `RestTemplate` (Java), `HttpClient` (Angular)
+- **Data Binding:** Jackson (til JSON deserialisering i Java)
+- **CORS Håndtering:** Konfigureret i Spring Boot
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Angular Frontend
 
-## Build
+#### Teknologier:
+- **Angular**
+- **Node.js & npm**
+- **Port:** `4200`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Sådan starter du frontend:
 
-## Running unit tests
+1. **Installer afhængigheder:**
+   Gå til Angular projektmappen:
+   ```bash
+   cd weather-forecast-web
+   npm install
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. **Kør Angular applikationen:**
+   Når alle afhængigheder er installeret, kør Angular udviklingsserveren:
+   ```bash
+   ng serve
+   ```
 
-## Running end-to-end tests
+3. **Adgang til frontend:**
+   Angular frontend vil køre på `http://localhost:4200`. Åbn din browser og besøg URL'en for at se vejrdashboardet.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## Ports
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Java Backend:** Kører på `http://localhost:8080`
+- **Angular Frontend:** Kører på `http://localhost:4200`
+
+---
+
+### CORS Konfiguration
+
+Hvis du støder på CORS-problemer, når frontend forsøger at anmode om data fra backend, er Spring Boot backend konfigureret til at tillade anmodninger fra `http://localhost:4200`. Dette er konfigureret i `WebMvcConfigurer`-klassen i backendprojektet.
+
+---
+
+### Projektstruktur
+
+#### Backend (Java):
+```
+src/
+├── main/
+│   ├── java/com/example/weatherApp
+│   │   ├── controller/  # REST API controller for vejropdateringer
+│   │   ├── service/     # Service der kommunikerer med Open-Meteo API
+│   │   └── model/       # Modeller for vejrrespons
+│   └── resources/
+│       └── application.properties  # Konfiguration for Spring Boot
+└── test/  # Enhedstest
+```
+
+#### Frontend (Angular):
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── forecast/  # Komponent til at vise vejrudsigten
+│   ├── services/      # Service til at hente vejroplysninger fra backend
+└── assets/            # CSS og andre statiske filer
+```
+
+---
+
+### Hvordan det fungerer
+
+- **Backend** henter data fra Open-Meteo API'et baseret på den angivne lokation (Aarhus).
+- **Frontend** sender HTTP-anmodninger til backend for at hente vejrinformationen og vise det på et brugervenligt dashboard.
+
+---
+
+### Problemer & Fejlretning
+
+#### Almindelige problemer:
+- **CORS Problem:** Sørg for, at backendens CORS-konfiguration tillader anmodninger fra frontend. Dobbelttjek, at `localhost:4200` er tilladt i Spring Boot konfigurationen.
+- **Port konflikter:** Sørg for, at backend kører på port `8080`, og at frontend kører på port `4200`. Hvis andre services bruger disse porte, kan du justere portkonfigurationen i `application.properties` (for backend) eller `proxy.conf.json` (for Angular).
+
+---
+
+### Konklusion
+Dette vejr-dashboard er en komplet løsning til at spore realtids vejroplysninger og vejrudsigt for Better Developers' kontor i Aarhus. Følg ovenstående trin for at køre både backend og frontend, og nyd live vejropdateringer.
