@@ -1,5 +1,3 @@
-// src/app/current-weather/current-weather.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { WeatherService, CurrentWeather, WeatherResponse } from '../weather.service';
 
